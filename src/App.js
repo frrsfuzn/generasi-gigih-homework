@@ -2,10 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+	console.log(process.env.REACT_APP_SPOTIFY_CLIENT_ID);
+	console.log(process.env.REACT_APP_SPOTIFY_CLIENT_SECRET);
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+				<h1>Mochamad Farras Fauzan</h1>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
