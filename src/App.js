@@ -1,28 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import data from "./Data";
 
-function App() {
-	console.log(process.env.REACT_APP_SPOTIFY_CLIENT_ID);
-	console.log(process.env.REACT_APP_SPOTIFY_CLIENT_SECRET);
+const {
+  album: {
+    name: songTitle,
+    images: [, albumImg]
+  },
+  artists: [{ name: artistName }]
+} = data;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-				<h1>Mochamad Farras Fauzan</h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="elemenNeo playlist">
+      <img
+        id="image"
+        className="elemenNeo"
+        width={albumImg.width}
+        src={albumImg.url}
+        alt="Album image"
+      />
+      <h3>Title: {songTitle}</h3>
+      <h3>Artist: {artistName}</h3>
+      <button className="elemenNeo btn">Select</button>
     </div>
   );
 }
-
-export default App;
