@@ -1,23 +1,9 @@
 import './App.css';
-import data from "./Data";
-import Song from "./components/song";
-const {
-  album: {
-    name: songTitle,
-    images: [, albumImg]
-  },
-  artists: [{ name: artistName }]
-} = data;
-
+import data from "./all-sample";
+import Playlist from './components/playlist';
+console.table(data);
 export default function App() {
   return (
-		<div className="elemenNeo playlist">
-			<Song
-				src={albumImg.url}
-				width={albumImg.width}
-				title={songTitle}
-				artist={artistName}
-			/>
-		</div>
-  );
+		<Playlist data={data}/>
+	);
 }

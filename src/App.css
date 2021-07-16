@@ -1,6 +1,6 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
+	text-align: center;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
   box-shadow: 8px 8px 15px rgb(57, 140, 218), -8px -8px 15px rgb(83, 164, 240);
 }
 
-.playlist {
+.song {
   margin: 70px auto;
   padding: 30px;
   width: 500px;
@@ -27,7 +27,7 @@ body {
   color: white;
 }
 
-.playlist img {
+.song img {
   margin-bottom: 30px;
 }
 
