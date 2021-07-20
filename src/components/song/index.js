@@ -6,7 +6,7 @@ export default function Song(props){
 		<div className="elemenNeo song">
 			<AlbumImage src={props.src} width={props.width}/>
 			<SongTitleAttributes title={props.title} artist={props.artist}/>
-			<Button value="Select"/>
+			<a className="elemenNeo btn" href={props.url}>Open on Spotify</a>
 		</div>
 	)
 }
