@@ -33,7 +33,7 @@ body {
 }
 
 .btn {
-  margin-top: 10px;
+	margin: 10px 10px;
   cursor: pointer;
   width: 150px;
   height: 50px;
@@ -51,6 +51,23 @@ body {
   box-shadow: inset -3px -3px 10px 0 rgb(83, 164, 240),
     inset 3px 3px 10px 0 rgb(57, 140, 218);
   color: rgb(243, 179, 61);
+}
+
+.btnSelected {
+	margin: 10px 10px;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  font-size: 1rem;
+  color: rgb(172, 172, 172);
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  border: none;
+  font-weight: bold;
+  box-shadow: inset -3px -3px 10px 0 rgb(83, 164, 240),
+    inset 3px 3px 10px 0 rgb(57, 140, 218);
 }
 
 .container {
