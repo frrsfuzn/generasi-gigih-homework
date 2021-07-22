@@ -25,10 +25,13 @@ export default function App() {
 
   function deleteTrack(uri) {
 		console.log('Deleted ', uri)
-    const indexTrack = selectedTracks.indexOf(uri);
-    if (indexTrack > -1) {
-      setSelectedTracks((prev) => prev.splice(indexTrack, 1));
-    }
+    // const indexTrack = selectedTracks.indexOf(uri);
+		// console.log(indexTrack);
+    // if (indexTrack > -1) {
+    //   setSelectedTracks((prev) => prev.splice(indexTrack, 1));
+		// 	console.log(selectedTracks);
+    // }
+    setSelectedTracks(selectedTracks.filter((item) => item  !== uri));
   }
 
   function handleSubmit(e) {

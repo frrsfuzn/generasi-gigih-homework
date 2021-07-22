@@ -16,7 +16,7 @@ export default function Playlist({ data, addTrack, deleteTrack, selectedTracks }
     } = item;
 
 		let isSelected=false;
-		console.log("Playlist:  ",artistName,selectedTracks.includes(uri))
+		// console.log("Playlist:  ",artistName,selectedTracks.includes(uri))
 		if(selectedTracks.includes(uri)){
 			isSelected=true;
 		}
