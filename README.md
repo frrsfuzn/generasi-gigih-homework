@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Frontend Homework for Gigih
+
+Rename .env to .env.local then fill it with your spotify client id and client secret
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
