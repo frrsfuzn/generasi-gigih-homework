@@ -18,12 +18,38 @@ body {
   box-shadow: 8px 8px 15px rgb(57, 140, 218), -8px -8px 15px rgb(83, 164, 240);
 }
 
+.profileHeader {
+	/* background: salmon; */
+	width: 80%;
+	margin: 0 auto;
+	color: white;
+	height: 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 10px;
+}
+
+.userProfile {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.userProfile > img {
+	width: 50px;
+	border-radius: 50px;
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
 .song {
   margin: 70px auto;
   padding: 30px;
   min-width: 250px;
 	max-width: 500px;
-  height: 600px;
+  height: 480px;
   text-align: center;
   color: white;
 }
@@ -74,11 +100,53 @@ body {
 	text-align: center;
 }
 
-form input[type=text] {
+input[type=text] {
 	width: 300px;
 	height: 50px;
 	border-radius: 20px;
 	border: 1px solid white;
 	margin: 20px 30px;
 	font-size: 1.5rem;
+}
+
+textarea {
+	width: 300px;
+	height: 100px;
+	border-radius: 20px;
+	border: 1px solid white;
+	margin: 20px 30px;
+	font-size: 1.5rem;
+}
+
+.formCreatePlaylist {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display:flex;
+	flex-direction: column;
+	width: 400px;
+	margin: 20px 0;
+	align-items: flex-start;
+	height:400px;
+}
+
+.formCreatePlaylist label {
+	margin: 0px 30px;
+	color: white;
+	font-size: 1.2rem;
+}
+
+.formCreatePlaylist button {
+	margin-left: 30px;
+}
+
+.content {
+	display: flex;
+	/* background: salmon; */
+	justify-content: space-between;
+	margin: 10px auto;
+	width: 80%;
+}
+
+.albumImage {
+	width: 200px;
 }
