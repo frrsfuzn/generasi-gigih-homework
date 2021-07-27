@@ -4,13 +4,17 @@ import ProfileHeader from "./components/profileHeader";
 import FormCreatePlaylist from "./components/formCreatePlaylist";
 import SearchBar from './components/searchBar';
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { storeToken } from './features/token/tokenSlice'
 
 export default function App() {
-  const [accessToken, setAccessToken] = useState("");
   const [tracks, setTracks] = useState([]);
   const [selectedTracks, setSelectedTracks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [userProfile, setUserProfile] = useState({});
+
+	const accessToken = useSelector((state) => state.token.value)
+	const dispatch = useDispatch()
 
   const SpotifyUrl = "https://accounts.spotify.com/";
   const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -18,9 +22,9 @@ export default function App() {
   useEffect(() => {
     const hash = window.location.hash;
     const token = hash ? hash.split("=")[1].split("&")[0] : "";
-    setAccessToken(token);
+		dispatch(storeToken(token))
     fetchUserProfile(token);
-  }, []);
+  }, [dispatch]);
 
   function addTrack(uri) {
     console.log("Added ", uri);
@@ -62,7 +66,14 @@ export default function App() {
     }
     const playlistName = e.target[0].value;
     const playlistDescription = e.target[1].value;
-    fetch(`https://api.spotify.com/v1/users/${userProfile.id}/playlists`, {
+		createPlaylist(userProfile, accessToken, playlistName, playlistDescription)
+		.then( data => {
+			console.log(data)
+			addTracksToPlaylist(data.id, accessToken, selectedTracks)});
+	}
+
+	function createPlaylist(userProfile, accessToken, playlistName, playlistDescription){
+		return fetch(`https://api.spotify.com/v1/users/${userProfile.id}/playlists`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,27 +85,27 @@ export default function App() {
         public: false,
         collaborative: false,
       }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const { id } = data;
-        fetch(
-          `https://api.spotify.com/v1/playlists/${id}/tracks?uris=${selectedTracks.join(
-            ","
-          )}`,
-          {
-            method: "POST",
-            headers: {
-              Authorization: "Bearer " + accessToken,
-            },
-          }
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            if ("snapshot_id" in data) alert("Playlist Created");
-          });
-      });
-  }
+    }).then(res => res.json())
+		.then(data => data)
+	}
+
+	function addTracksToPlaylist(idPlaylist, accessToken ,selectedTracks){
+		return fetch(
+			`https://api.spotify.com/v1/playlists/${idPlaylist}/tracks?uris=${selectedTracks.join(
+				","
+			)}`,
+			{
+				method: "POST",
+				headers: {
+					Authorization: "Bearer " + accessToken,
+				},
+			}
+		)
+			.then((res) => res.json())
+			.then((data) => {
+				if ("snapshot_id" in data) alert("Playlist Created");
+			});
+	}
 
   function fetchUserProfile(token) {
     if (token) {
