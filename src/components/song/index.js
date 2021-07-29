@@ -6,7 +6,6 @@ export default function Song(props){
 		buttonSelectValue='Deselect'
 	}
 	function handleClick(){
-		console.log("Song: ",props.artist,props.isSelected)
 		if(props.isSelected){
 			props.deleteTrack(props.uri)
 		}else{

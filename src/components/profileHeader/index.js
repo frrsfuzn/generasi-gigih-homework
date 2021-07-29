@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function ProfileHeader({userProfile}) {
-	console.log("user: ",userProfile);
 	const {display_name, images: [{url}]} = userProfile
 	return (
 		<div className="elemenNeo profileHeader">
