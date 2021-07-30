@@ -4,7 +4,7 @@ import Login from "./components/login";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { storeToken } from "./features/token/tokenSlice";
-import useSpotify from "./spotifyLib/spotify";
+import useSpotify from "./spotifyServices/spotify";
 import {
   BrowserRouter as Router,
   Switch,

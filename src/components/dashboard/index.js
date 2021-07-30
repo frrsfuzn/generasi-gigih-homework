@@ -2,6 +2,7 @@ import FormCreatePlaylist from "../formCreatePlaylist";
 import ProfileHeader from "../profileHeader";
 import SearchBar from "../searchBar";
 import Playlist from "../playlist";
+import React from 'react';
 import useSpotify from "../../spotifyLib/spotify";
 import { useSelector } from "react-redux";
 

@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import PropTypes from 'prop-types'
 
 export default function SearchBar({ handleSubmit }) {
   return (
@@ -12,4 +13,8 @@ export default function SearchBar({ handleSubmit }) {
       />
     </form>
   );
+}
+
+SearchBar.propTypes = {
+	handleSubmit: PropTypes.func,
 }

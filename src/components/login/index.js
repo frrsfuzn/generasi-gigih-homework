@@ -1,3 +1,5 @@
+import React from 'react'
+
 function Login() {
 	const SpotifyUrl = "https://accounts.spotify.com/";
   const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function ProfileHeader({userProfile}) {
 	const {display_name, images: [{url}]} = userProfile
@@ -11,4 +12,8 @@ export default function ProfileHeader({userProfile}) {
 			</div>
 		</div>
 	)
+}
+
+ProfileHeader.propTypes = {
+	userProfile: PropTypes.object,
 }

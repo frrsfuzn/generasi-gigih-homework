@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function FormCreatePlaylist({handleCreatePlaylist}) {
 	return (
@@ -10,4 +11,8 @@ export default function FormCreatePlaylist({handleCreatePlaylist}) {
 			<button className="btn elemenNeo">Create Playlist</button>
 		</form>
 	)
+}
+
+FormCreatePlaylist.propTypes = {
+	handleCreatePlaylist: PropTypes.func,
 }
