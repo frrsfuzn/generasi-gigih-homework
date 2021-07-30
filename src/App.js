@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 
 export default function App() {
-  const [, , , , , , , fetchUserProfile] = useSpotify();
+  const {fetchUserProfile} = useSpotify();
 
   const accessToken = useSelector((state) => state.token.value);
   const dispatch = useDispatch();

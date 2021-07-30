@@ -81,7 +81,7 @@ function useSpotify(){
 		}
 	}
 
-	return [
+	return {
 		tracks,
 		selectedTracks,
 		loading,
@@ -90,7 +90,7 @@ function useSpotify(){
 		createPlaylist,
 		addTracksToPlaylist,
 		fetchUserProfile
-	]
+	}
 
 }
 

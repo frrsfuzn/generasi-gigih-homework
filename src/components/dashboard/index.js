@@ -6,7 +6,7 @@ import useSpotify from "../../spotifyLib/spotify";
 import { useSelector } from "react-redux";
 
 function Dashboard() {
-  const [
+  const {
     tracks,
     selectedTracks,
     loading,
@@ -14,8 +14,7 @@ function Dashboard() {
     searchTrack,
     createPlaylist,
     addTracksToPlaylist,
-    ,
-  ] = useSpotify();
+  } = useSpotify();
   const userProfile = useSelector((state) => state.user.value);
   function addTrack(uri) {
     setSelectedTracks((prev) => [...prev, uri]);
