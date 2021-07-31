@@ -31,7 +31,7 @@ Song.propTypes = {
 	deleteTrack: PropTypes.func,
 	addTrack: PropTypes.func,
 	src: PropTypes.string,
-	width: PropTypes.string,
+	width: PropTypes.number,
 	uri: PropTypes.string,
 	url: PropTypes.string,
 	artist: PropTypes.string,

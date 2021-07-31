@@ -3,7 +3,7 @@ import ProfileHeader from "../profileHeader";
 import SearchBar from "../searchBar";
 import Playlist from "../playlist";
 import React from 'react';
-import useSpotify from "../../spotifyLib/spotify";
+import useSpotify from "../../spotifyServices/spotify";
 import { useSelector } from "react-redux";
 
 function Dashboard() {
