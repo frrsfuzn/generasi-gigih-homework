@@ -2,7 +2,7 @@ import FormCreatePlaylist from "../formCreatePlaylist";
 import ProfileHeader from "../profileHeader";
 import SearchBar from "../searchBar";
 import Playlist from "../playlist";
-import React from 'react';
+import React from "react";
 import useSpotify from "../../spotifyServices/spotify";
 import { useSelector } from "react-redux";
 
@@ -61,16 +61,18 @@ function Dashboard() {
         <FormCreatePlaylist handleCreatePlaylist={handleCreatePlaylist} />
         <div className="result">
           <SearchBar handleSubmit={handleSubmit} />
-          {loading ? (
-            <h1 style={{ color: "white" }}>Loading...</h1>
-          ) : (
-            <Playlist
-              data={tracks}
-              addTrack={addTrack}
-              deleteTrack={deleteTrack}
-              selectedTracks={selectedTracks}
-            />
-          )}
+          <div className="searchResult">
+            {loading ? (
+              <h1 style={{ color: "white" }}>Loading...</h1>
+            ) : (
+              <Playlist
+                data={tracks}
+                addTrack={addTrack}
+                deleteTrack={deleteTrack}
+                selectedTracks={selectedTracks}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>

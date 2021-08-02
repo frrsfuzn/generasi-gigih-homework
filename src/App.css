@@ -142,11 +142,17 @@ textarea {
 .content {
 	display: flex;
 	/* background: salmon; */
-	justify-content: space-between;
+	justify-content: space-around;
 	margin: 10px auto;
 	width: 80%;
+	flex-wrap:wrap;
 }
 
 .albumImage {
 	width: 200px;
+}
+
+.searchResult {
+	overflow-y: scroll;
+	height: 500px;
 }
