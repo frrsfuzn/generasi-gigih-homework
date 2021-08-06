@@ -69,9 +69,6 @@ export default function Header() {
           <h1 className={classes.appbarTitle}>
             My<span className={classes.colorText}>Spotify.</span>
           </h1>
-          {/* <IconButton>
-            <SortIcon className={classes.icon} />
-          </IconButton> */}
         </Toolbar>
       </AppBar>
 
