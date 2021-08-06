@@ -1,15 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux'
 import {useState} from 'react'
 import {storeUser} from '../features/user/userSlice'
-
+import {storeTracks} from '../features/trackResult/trackResultSlice'
+import {storeSelected} from '../features/trackResult/trackResultSlice'
 
 function useSpotify(){
-	const [tracks, setTracks] = useState([])
-  const [selectedTracks, setSelectedTracks] = useState([])
+	// const [tracks, setTracks] = useState([])
+  // const [selectedTracks, setSelectedTracks] = useState([])
   const [loading, setLoading] = useState(false)
 
 	const userProfile = useSelector((state) => state.user.value)
   const accessToken = useSelector((state) => state.token.value)
+	const selectedTracks = useSelector((state) => state.trackResult.selectedTracks)
 	const dispatch = useDispatch();
 
 	function searchTrack(trackName) {
@@ -23,7 +25,8 @@ function useSpotify(){
 			.then((res) => res.json())
 			.then((data) => {
 				setLoading(false);
-				setTracks(data.tracks.items);
+				// setTracks(data.tracks.items);
+				dispatch(storeTracks(data.tracks.items))
 			})
 			.catch((err) => console.log(err));
 	}
@@ -64,7 +67,7 @@ function useSpotify(){
 			.then((res) => res.json())
 			.then((data) => {
 				if ("snapshot_id" in data) alert("Playlist Created")
-				setSelectedTracks([])
+				dispatch(storeSelected([]))
 			});
 	}
 
@@ -82,10 +85,7 @@ function useSpotify(){
 	}
 
 	return {
-		tracks,
-		selectedTracks,
 		loading,
-		setSelectedTracks,
 		searchTrack,
 		createPlaylist,
 		addTracksToPlaylist,
