@@ -18,6 +18,7 @@
     "plugins": [
         "react"
     ],
+		"parser": "@typescript-eslint/parser",
 		"settings": {
 			"react":{
 				"version": "detect"

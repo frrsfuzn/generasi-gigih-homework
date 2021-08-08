@@ -3,7 +3,8 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/hooks";
 import useSpotify from "../../spotifyServices/spotify";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +28,7 @@ export default function formCreatePlaylist() {
   const { createPlaylist, addTracksToPlaylist } = useSpotify();
   const [judul, setJudul] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
-  const selectedTracks = useSelector(
+  const selectedTracks = useAppSelector(
     (state) => state.trackResult.selectedTracks
   );
 
@@ -60,7 +61,6 @@ export default function formCreatePlaylist() {
         label="Judul Playlist"
         name="judulPlaylist"
         value={judul}
-        minLength={20}
         onChange={(e) => setJudul(e.target.value)}
       />
       <TextField

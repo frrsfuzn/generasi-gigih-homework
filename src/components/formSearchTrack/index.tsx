@@ -24,9 +24,8 @@ export default function FormSearchTrack() {
   const classes = useStyles();
 	const [searchValue, setSearchValue] = useState("");
 	const {searchTrack} = useSpotify();
-  function handleSubmit(e) {
+  function handleSubmit(e:any) {
     e.preventDefault();
-		console.log(e.target);
 		if(searchValue){
 			searchTrack(searchValue)
 		}
@@ -47,7 +46,7 @@ export default function FormSearchTrack() {
         label="Judul Lagu"
         name="judulLagu"
 				value={searchValue}
-				onChange={(e) => setSearchValue(e.target.value)}
+				onChange={(e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => setSearchValue(e.target.value)}
       />
       <Button
         type="submit"

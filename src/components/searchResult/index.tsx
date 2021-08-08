@@ -6,19 +6,20 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Track from "../track";
 import { storeSelected } from "../../features/trackResult/trackResultSlice";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 export default function SearchResult() {
-  const dispatch = useDispatch();
-  const tracks = useSelector((state) => state.trackResult.searchTracks);
-  const selectedTracks = useSelector(
+  const dispatch = useAppDispatch();
+  const tracks = useAppSelector((state) => state.trackResult.searchTracks);
+  const selectedTracks = useAppSelector(
     (state) => state.trackResult.selectedTracks
   );
-  function addTrack(uri) {
+  function addTrack(uri: string) {
     dispatch(storeSelected([ ...selectedTracks, uri ]));
   }
 
-  function deleteTrack(uri) {
+  function deleteTrack(uri: string) {
     dispatch(storeSelected(selectedTracks.filter((item) => item !== uri)));
   }
   console.log("Search result", tracks);

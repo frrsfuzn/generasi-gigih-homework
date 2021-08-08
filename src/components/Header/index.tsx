@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   // IconButton,
@@ -11,7 +11,7 @@ import {
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import { Link as Scroll } from 'react-scroll';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(() => createStyles({
   root: {
     display: "flex",
     justifyContent: "center",
@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
     margin: "0 auto",
   },
   appbarTitle: {
-    flexGrow: "1",
+    flexGrow: 1,
     color: "#fff",
   },
   icon: {

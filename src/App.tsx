@@ -3,7 +3,7 @@ import Dashboard from "./components/dashboardNew";
 // import Login from "./components/login";
 import Login from "./components/loginNew";
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import { storeToken } from "./features/token/tokenSlice";
 import useSpotify from "./spotifyServices/spotify";
 import {
@@ -14,12 +14,16 @@ import {
 } from "react-router-dom";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import { createTheme } from "@material-ui/core";
+import { useAppSelector, useAppDispatch } from "./app/hooks";
+// import store from './app/store';
+
+// type RootState = ReturnType<typeof store.getState>;
 
 export default function App() {
   const { fetchUserProfile } = useSpotify();
-
-  const accessToken = useSelector((state) => state.token.value);
-  const dispatch = useDispatch();
+	
+  const accessToken = useAppSelector((state) => state.token.value);
+  const dispatch = useAppDispatch();
 
 	const theme= createTheme({
 		palette: {

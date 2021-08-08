@@ -1,8 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 import FormCreatePlaylist from "../formCreatePlaylistNew";
 import FormSearchTrack from "../formSearchTrack";
 import SearchResult from "../searchResult";
+import { useAppSelector} from "../../app/hooks";
 // import Button from "@material-ui/core/Button";
 // import TextField from "@material-ui/core/TextField";
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -21,9 +22,10 @@ import {
   // Collapse,
   // Button,
 } from "@material-ui/core";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+// import store from "../../app/store";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(() => createStyles ({
   root: {
     display: "flex",
     justifyContent: "center",
@@ -40,7 +42,7 @@ const useStyles = makeStyles(() => ({
     margin: "0 auto",
   },
   appbarTitle: {
-    flexGrow: "1",
+    flexGrow: 1,
     color: "#fff",
   },
   icon: {
@@ -69,15 +71,16 @@ const useStyles = makeStyles(() => ({
     padding: "15px",
     margin: "10px",
   },
-	main: {
-		paddingTop: '100px',
-	}
+  main: {
+    paddingTop: "100px",
+  },
 }));
 
 export default function index() {
-  const { display_name = "", images: [profileImg = {}] = [] } = useSelector(
-    (state) => state.user.value
-  );
+  // const { display_name = "", images: [profileImg = {}] = [] } = useAppSelector(
+  //   (state) => state.user.value
+  // );
+	const userProfile = useAppSelector((state) => state.user.value)!
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -88,9 +91,10 @@ export default function index() {
             My<span className={classes.colorText}>Spotify.</span>
           </h1>
           <Typography variant="h5" component="h5" className={classes.titleName}>
-            {display_name}
+            {userProfile.display_name}
           </Typography>
-          <Avatar src={profileImg?.url} />
+					{/* dont forget to add src */}
+          <Avatar src={''} />
         </Toolbar>
       </AppBar>
       <main className={classes.main}>
