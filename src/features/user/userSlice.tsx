@@ -10,7 +10,7 @@ interface UserData {
   };
   href: string;
   id: string;
-  images?: [{ height: null; url: string; width: null }];
+  images?: { height: null; url: string; width: null }[];
   type: string;
   uri: string;
 }

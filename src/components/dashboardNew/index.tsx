@@ -94,7 +94,7 @@ export default function index() {
             {userProfile.display_name}
           </Typography>
 					{/* dont forget to add src */}
-          <Avatar src={''} />
+          <Avatar src={userProfile.images?.[0].url} />
         </Toolbar>
       </AppBar>
       <main className={classes.main}>
