@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-/* eslint-disable react/prop-types */
 import React from "react";
 import {TableRow, TableCell, Button} from '@material-ui/core';
 
@@ -13,7 +12,7 @@ interface ITrack {
 
 
 export default function Track({track, isSelected, deleteTrack, addTrack}: ITrack) {
-	let buttonSelectValue = 'Select'
+	let buttonSelectValue:string = 'Select'
 	if(isSelected){
 		buttonSelectValue='Deselect'
 	}

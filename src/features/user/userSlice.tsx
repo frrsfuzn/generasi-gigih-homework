@@ -2,34 +2,34 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../app/store";
 
-// interface UserData {
-//   display_name: string;
-//   external_urls: unknown;
-//   followers: {
-//     href: null;
-//     total: number;
-//   };
-//   href: string;
-//   id: string;
-//   images?: { height: null; url: string; width: null }[];
-//   type: string;
-//   uri: string;
-// }
+interface UserData {
+  display_name: string;
+  external_urls: unknown;
+  followers: {
+    href: null;
+    total: number;
+  };
+  href: string;
+  id: string;
+  images?: { height: null; url: string; width: null }[];
+  type: string;
+  uri: string;
+}
 
 interface UserState {
-  value: SpotifyApi.UserObjectPublic;
+  value: UserData;
   // value: object,
 }
 
 const initialState: UserState = {
-  value: {} as SpotifyApi.UserObjectPublic,
+  value: {} as UserData,
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    storeUser: (state, action: PayloadAction<SpotifyApi.UserObjectPublic>) => {
+    storeUser: (state, action: PayloadAction<UserData>) => {
       state.value = action.payload;
     },
   },
