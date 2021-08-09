@@ -1,20 +1,21 @@
-import { useSelector, useDispatch } from 'react-redux'
+// import { useSelector, useDispatch } from 'react-redux'
 import {useState} from 'react'
 import {storeUser} from '../features/user/userSlice'
 import {storeTracks} from '../features/trackResult/trackResultSlice'
 import {storeSelected} from '../features/trackResult/trackResultSlice'
+import {useAppSelector, useAppDispatch} from '../app/hooks'
 
 function useSpotify(){
 	// const [tracks, setTracks] = useState([])
   // const [selectedTracks, setSelectedTracks] = useState([])
   const [loading, setLoading] = useState(false)
 
-	const userProfile = useSelector((state) => state.user.value)
-  const accessToken = useSelector((state) => state.token.value)
-	const selectedTracks = useSelector((state) => state.trackResult.selectedTracks)
-	const dispatch = useDispatch();
+	const userProfile = useAppSelector((state) => state.user.value)
+  const accessToken = useAppSelector((state) => state.token.value)
+	const selectedTracks = useAppSelector((state) => state.trackResult.selectedTracks)
+	const dispatch = useAppDispatch();
 
-	function searchTrack(trackName) {
+	function searchTrack(trackName: string) {
     setLoading(true);
 		return fetch(`https://api.spotify.com/v1/search?q=${trackName}&type=track`, {
 			method: "GET",
@@ -32,8 +33,8 @@ function useSpotify(){
 	}
 
 	function createPlaylist(
-		playlistName,
-		playlistDescription
+		playlistName: string,
+		playlistDescription: string
 	) {
 		return fetch(`https://api.spotify.com/v1/users/${userProfile.id}/playlists`, {
 			method: "POST",
@@ -52,7 +53,7 @@ function useSpotify(){
 			.then((data) => data);
 	}
 
-	function addTracksToPlaylist(idPlaylist) {
+	function addTracksToPlaylist(idPlaylist: string) {
 		return fetch(
 			`https://api.spotify.com/v1/playlists/${idPlaylist}/tracks?uris=${selectedTracks.join(
 				","

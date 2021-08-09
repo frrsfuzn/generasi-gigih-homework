@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -34,8 +35,8 @@ export default function SearchResult() {
         </TableRow>
       </TableHead>
       <TableBody>
-        {Object.keys(tracks).length && tracks.map((track) => {
-          let isSelected = false;
+        {Object.keys(tracks).length && tracks.map((track: SpotifyApi.TrackObjectFull) => {
+          let isSelected: boolean = false;
           if (selectedTracks?.includes(track.uri)) {
             isSelected = true;
           }

@@ -1,7 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 interface TracksState {
-	searchTracks: object[];
+	// eslint-disable-next-line no-undef
+	searchTracks: SpotifyApi.TrackObjectFull[];
+	
 	selectedTracks: string[];
 }
 
@@ -14,7 +16,8 @@ export const trackResult = createSlice({
 	name: 'user',
 	initialState,
 	reducers:{
-		storeTracks: (state, action: PayloadAction<object[]>) => {
+		// eslint-disable-next-line no-undef
+		storeTracks: (state, action: PayloadAction<SpotifyApi.TrackObjectFull[]>) => {
 			state.searchTracks = action.payload
 		},
 		storeSelected: (state, action: PayloadAction<string[]>) => {
